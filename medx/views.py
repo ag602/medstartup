@@ -11,6 +11,9 @@ import request
 def home(request):
     return render(request, 'home/home.html', {'':''})
 
+def diabriskpred(request):
+    return render(request, 'diabriskpred.html', {'':''})
+
 def contact(request):
 
     if request.method == 'POST':

@@ -1,0 +1,217 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+    <style>
+        label.required::after {
+    content: ' *';
+    color: red;
+}
+    </style>
+
+    <section class="section">
+    <div class="container">
+         <form method="post">
+                {% csrf_token %}
+
+
+             <div class="row">
+                 <div class="col-md-12 form-group">
+                <label for="exampleFormControlSelect1" class="required">Gender</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+             </div>
+
+             <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="age" class="required">Age</label>
+                  <input type="number" name="age" class="form-control form-control-lg" id="age">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="tcl">Total Cholesterol level(in mg/dl)</label>
+                  <input type="number" name="tcl" class="form-control form-control-lg" id="tcl">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="hcl">HDL Cholesterol level(in mg/dl)</label>
+                  <input type="number" name="hcl" class="form-control form-control-lg" id="hcl">
+                </div>
+              </div>
+
+             <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="weight" class="required">Weight(in KG)</label>
+                  <input type="number" name="weight" class="form-control form-control-lg" id="weight">
+                </div>
+              </div>
+
+             <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="height" class="required">Height(in cm)</label>
+                  <input type="number" name="height" class="form-control form-control-lg" id="height">
+                </div>
+              </div>
+
+             <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="waist" class="required">Waist Circumference(in cm)</label>
+                  <input type="number" name="waist" class="form-control form-control-lg" id="waist">
+                </div>
+              </div>
+
+             <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="hip" class="required">Hip Circumference(in cm)</label>
+                  <input type="number" name="hip" class="form-control form-control-lg" id="hip">
+                </div>
+              </div>
+
+              <div class="row">
+                 <div class="col-md-12 form-group">
+                <label for="exampleFormControlSelect1" class="required">Is Physically Active on daily basis? (30 minutes of general exercise)</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Maybe</option>
+                </select>
+              </div>
+             </div>
+
+              <div class="row">
+                 <div class="col-md-12 form-group">
+                <label for="exampleFormControlSelect1" class="required">Eats Vegetables and Fruits on daily basis?</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Maybe</option>
+                </select>
+              </div>
+             </div>
+
+              <div class="row">
+                 <div class="col-md-12 form-group">
+                <label for="exampleFormControlSelect1" class="required">Ever taken High BP medications?</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Maybe</option>
+                </select>
+              </div>
+             </div>
+
+              <div class="row">
+                 <div class="col-md-12 form-group">
+                <label for="exampleFormControlSelect1" class="required">Do your Blood relatives have Diabetes?</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Maybe</option>
+                </select>
+              </div>
+             </div>
+
+              <div class="row">
+                 <div class="col-md-12 form-group">
+                <label for="exampleFormControlSelect1" class="required">Do your Parent and Sibling have Diabetes?</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Maybe</option>
+                </select>
+              </div>
+             </div>
+
+              <div class="row">
+                 <div class="col-md-12 form-group">
+                <label for="exampleFormControlSelect1" class="required">Ever had High Glucose level?</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Maybe</option>
+                </select>
+              </div>
+             </div>
+
+              <div class="row">
+                 <div class="col-md-12 form-group">
+                <label for="exampleFormControlSelect1" class="required">Smoking Status</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Never smoked</option>
+                  <option>Ex-smoker</option>
+                    <option>Low-smoker(<=10/month)</option>
+                    <option>Mid-smoker(11-20/month)</option>
+                    <option>High-smoker(>20/month)</option>
+                </select>
+              </div>
+             </div>
+
+              <div class="row">
+                 <div class="col-md-12 form-group">
+                <label for="exampleFormControlSelect1" class="required">Ever Diagnosed with any Heart Disease?</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Maybe</option>
+                </select>
+              </div>
+             </div>
+
+              <div class="row">
+                 <div class="col-md-12 form-group">
+                <label for="exampleFormControlSelect1" class="required">Are you on Steroids, Depression, Antipsychotic drugs?</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Maybe</option>
+                </select>
+              </div>
+             </div>
+
+             <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="HbA1c">HbA1c level</label>
+                  <input type="number" name="HbA1c" class="form-control form-control-lg" id="HbA1c">
+                </div>
+              </div>
+
+             <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="haem">Haemoglobin level(in g/dl)</label>
+                  <input type="number" name="haem" class="form-control form-control-lg" id="haem">
+                </div>
+              </div>
+
+{#              <div class="row">#}
+{#                <div class="col-md-12 form-group">#}
+{#                  <label for="email">Email</label>#}
+{#                  <input type="email" name="email" id="email" class="form-control form-control-lg">#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="row">#}
+{#                <div class="col-md-12 form-group">#}
+{#                  <label for="message">LDL Cholesterol level(in mg/dl)</label>#}
+{#                  <textarea name="message"  id="message" class="form-control form-control-lg" cols="30" rows="8"></textarea>#}
+{#                </div>#}
+{#              </div>#}
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="submit" name="submit" value="Submit" class="btn btn-primary btn-lg btn-block">
+                </div>
+
+              </div>
+            </form>
+    </div>
+    </section>
+
+
+{% endblock %}
