@@ -27,17 +27,18 @@
     </section>
     <section class="section">
     <div class="container">
-         <form method="post">
+
+         <form method="post" action="{% url 'diabetes_report' %}">
                 {% csrf_token %}
 
 
              <div class="row">
                  <div class="col-md-12 form-group">
                 <label for="exampleFormControlSelect1" class="required">Gender</label>
-                <select class="form-control" id="exampleFormControlSelect1" required>
+                <select class="form-control" id="exampleFormControlSelect1" name="gender" required>
                     <option value="" disabled selected>Select Gender</option>
-                    <option>Male</option>
-                  <option>Female</option>
+                    <option value="Male">Male</option>
+                  <option value="Female">Female</option>
                 </select>
               </div>
              </div>
@@ -45,60 +46,60 @@
              <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="age" class="required">Age</label>
-                  <input type="number" name="age" class="form-control form-control-lg" id="age">
+                  <input type="number" name="age" class="form-control form-control-lg" id="age" required>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="tcl">Total Cholesterol level(in mg/dl)</label>
-                  <input type="number" name="tcl" class="form-control form-control-lg" id="tcl">
+                  <input type="number" name="total_cholestrol" class="form-control form-control-lg" id="tcl">
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="hcl">HDL Cholesterol level(in mg/dl)</label>
-                  <input type="number" name="hcl" class="form-control form-control-lg" id="hcl">
+                  <input type="number" name="hdl_cholestrol" class="form-control form-control-lg" id="hcl">
                 </div>
               </div>
 
              <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="weight" class="required">Weight(in KG)</label>
-                  <input type="number" name="weight" class="form-control form-control-lg" id="weight">
+                  <input type="number" name="weight" class="form-control form-control-lg" id="weight" required>
                 </div>
               </div>
 
              <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="height" class="required">Height(in cm)</label>
-                  <input type="number" name="height" class="form-control form-control-lg" id="height">
+                  <input type="number" name="height" class="form-control form-control-lg" id="height" required>
                 </div>
               </div>
 
              <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="waist" class="required">Waist Circumference(in cm)</label>
-                  <input type="number" name="waist" class="form-control form-control-lg" id="waist">
+                  <input type="number" name="waist" class="form-control form-control-lg" id="waist" required>
                 </div>
               </div>
 
              <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="hip" class="required">Hip Circumference(in cm)</label>
-                  <input type="number" name="hip" class="form-control form-control-lg" id="hip">
+                  <input type="number" name="hip" class="form-control form-control-lg" id="hip" required>
                 </div>
               </div>
 
               <div class="row">
                  <div class="col-md-12 form-group">
                 <label for="exampleFormControlSelect1" class="required">Is Physically Active on daily basis? (30 minutes of general exercise)</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" name="physically_active" required>
                   <option value="" disabled selected>Select</option>
-                    <option>Yes</option>
-                  <option>No</option>
-                  <option>Maybe</option>
+                    <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Maybe">Maybe</option>
                 </select>
               </div>
              </div>
@@ -106,11 +107,11 @@
               <div class="row">
                  <div class="col-md-12 form-group">
                 <label for="exampleFormControlSelect1" class="required">Eats Vegetables and Fruits on daily basis?</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" name="eat" required>
                   <option value="" disabled selected>Select</option>
-                    <option>Yes</option>
-                  <option>No</option>
-                  <option>Maybe</option>
+                    <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Maybe">Maybe</option>
                 </select>
               </div>
              </div>
@@ -118,11 +119,11 @@
               <div class="row">
                  <div class="col-md-12 form-group">
                 <label for="exampleFormControlSelect1" class="required">Ever taken High BP medications?</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option value="" disabled selected>Select</option>
-                    <option>Yes</option>
-                  <option>No</option>
-                  <option>Maybe</option>
+                <select class="form-control" id="exampleFormControlSelect1" name="bp" required>
+                 <option value="" disabled selected>Select</option>
+                    <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Maybe">Maybe</option>
                 </select>
               </div>
              </div>
@@ -130,11 +131,11 @@
               <div class="row">
                  <div class="col-md-12 form-group">
                 <label for="exampleFormControlSelect1" class="required">Do your Blood relatives have Diabetes?</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" name="relative_diabetes" required>
                   <option value="" disabled selected>Select</option>
-                    <option>Yes</option>
-                  <option>No</option>
-                  <option>Maybe</option>
+                    <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Maybe">Maybe</option>
                 </select>
               </div>
              </div>
@@ -142,11 +143,11 @@
               <div class="row">
                  <div class="col-md-12 form-group">
                 <label for="exampleFormControlSelect1" class="required">Do your Parent and Sibling have Diabetes?</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" name="parent_diabetes" required>
                   <option value="" disabled selected>Select</option>
-                    <option>Yes</option>
-                  <option>No</option>
-                  <option>Maybe</option>
+                    <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Maybe">Maybe</option>
                 </select>
               </div>
              </div>
@@ -154,11 +155,11 @@
               <div class="row">
                  <div class="col-md-12 form-group">
                 <label for="exampleFormControlSelect1" class="required">Ever had High Glucose level?</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" name="glucose" required>
                   <option value="" disabled selected>Select</option>
-                    <option>Yes</option>
-                  <option>No</option>
-                  <option>Maybe</option>
+                    <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Maybe">Maybe</option>
                 </select>
               </div>
              </div>
@@ -166,13 +167,13 @@
               <div class="row">
                  <div class="col-md-12 form-group">
                 <label for="exampleFormControlSelect1" class="required">Smoking Status</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" name="smoking" required>
                  <option value="" disabled selected>Select</option>
-                  <option>Never smoked</option>
-                  <option>Ex-smoker</option>
-                    <option>Low-smoker(<=10/month)</option>
-                    <option>Mid-smoker(11-20/month)</option>
-                    <option>High-smoker(>20/month)</option>
+                  <option value="Never smoked">Never smoked</option>
+                  <option value="Ex-smoker">Ex-smoker</option>
+                    <option value="Low-smoker(<=10/month)">Low-smoker(<=10/month)</option>
+                    <option value="Mid-smoker(11-20/month)">Mid-smoker(11-20/month)</option>
+                    <option value="High-smoker(>20/month)">High-smoker(>20/month)</option>
                 </select>
               </div>
              </div>
@@ -180,11 +181,11 @@
               <div class="row">
                  <div class="col-md-12 form-group">
                 <label for="exampleFormControlSelect1" class="required">Ever Diagnosed with any Heart Disease?</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option value="" disabled selected>Select</option>
-                    <option>Yes</option>
-                  <option>No</option>
-                  <option>Maybe</option>
+                <select class="form-control" id="exampleFormControlSelect1" name="heart_disease" required>
+                 <option value="" disabled selected>Select</option>
+                    <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Maybe">Maybe</option>
                 </select>
               </div>
              </div>
@@ -192,11 +193,11 @@
               <div class="row">
                  <div class="col-md-12 form-group">
                 <label for="exampleFormControlSelect1" class="required">Are you on Steroids, Depression, Antipsychotic drugs?</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1" name="depression" required>
                   <option value="" disabled selected>Select</option>
-                    <option>Yes</option>
-                  <option>No</option>
-                  <option>Maybe</option>
+                    <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Maybe">Maybe</option>
                 </select>
               </div>
              </div>
