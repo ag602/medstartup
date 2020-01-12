@@ -43,7 +43,7 @@ def diabriskpred(request):
             form.save()
             dic = {'age':age}
 
-    return render(request, 'Diabetes/Report.html')
+    return render(request, 'Diabetes/diabriskpred.html')
 
 def contact(request):
 
