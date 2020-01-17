@@ -42,7 +42,7 @@ def diabriskpred(request):
             depression = form.cleaned_data['depression']
             HbA1c = form.cleaned_data['HbA1c']
             haem = form.cleaned_data['haem']
-            context = Diabetes.objects.create(gender=gender,
+            context = diabetes.objects.create(gender=gender,
                                               age=age,
                                               total_cholestrol=total_cholestrol,
                                               hdl_cholestrol=hdl_cholestrol,
@@ -60,8 +60,7 @@ def diabriskpred(request):
                                               heart_disease=heart_disease,
                                               depression=depression,
                                               HbA1c=HbA1c,
-                                              haem=haem
-                                              )
+                                              haem=haem)
 
             context.save()
             g = (weight*10000) / (height * height)
