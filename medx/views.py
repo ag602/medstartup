@@ -42,7 +42,7 @@ def diabriskpred(request):
             depression = form.cleaned_data['depression']
             HbA1c = form.cleaned_data['HbA1c']
             haem = form.cleaned_data['haem']
-            context = diabetes.objects.create(gender=gender,
+            context = Diabetes.objects.create(gender=gender,
                                               age=age,
                                               total_cholestrol=total_cholestrol,
                                               hdl_cholestrol=hdl_cholestrol,
@@ -70,7 +70,7 @@ def diabriskpred(request):
                    'weight':weight,'height':height,'waist':waist,'hip':hip,'physically_active':physically_active,'eat':eat,
                    'parent_diabetes':parent_diabetes,'relative_diabetes':relative_diabetes, 'bp':bp, 'glucose':glucose,
                    'smoking':smoking,'heart_disease':heart_disease,'depression':depression,'HbA1c':HbA1c,'haem':haem,
-                   'bmi_calc':bmi_calc
+                   'bmi_calc':bmi_calc,
                    }
 
             return render_to_response('Diabetes/Report.html', dic)
