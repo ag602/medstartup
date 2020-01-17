@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import render_to_response
 from .forms import *
 from django.http import HttpResponseRedirect
 # from django.core.mail import send_mail
@@ -14,9 +15,10 @@ def home(request):
 
 def diabetes_report(request):
 
-    return render(request, 'Diabetes/Report.html', {'':''})
+    return render(request, 'Diabetes/Report.html',)
 
 def diabriskpred(request):
+
     if request.method == 'POST':
         form = Diabetes(request.POST)
 
@@ -40,8 +42,40 @@ def diabriskpred(request):
             depression = form.cleaned_data['depression']
             HbA1c = form.cleaned_data['HbA1c']
             haem = form.cleaned_data['haem']
-            form.save()
-            dic = {'age':age}
+            context = diabetes.objects.create(gender=gender,
+                                              age=age,
+                                              total_cholestrol=total_cholestrol,
+                                              hdl_cholestrol=hdl_cholestrol,
+                                              weight=weight,
+                                              height=height,
+                                              waist=waist,
+                                              hip=hip,
+                                              physically_active=physically_active,
+                                              eat=eat,
+                                              bp=bp,
+                                              relative_diabetes=relative_diabetes,
+                                              parent_diabetes=parent_diabetes,
+                                              glucose=glucose,
+                                              smoking=smoking,
+                                              heart_disease=heart_disease,
+                                              depression=depression,
+                                              HbA1c=HbA1c,
+                                              haem=haem,
+                                              )
+
+            context.save()
+            g = (weight*10000) / (height * height)
+            bmi_calc = float("{0:.2f}".format(g))
+            dic = {'age':age, 'gender':gender, 'total_cholestrol':total_cholestrol,'hdl_cholestrol':hdl_cholestrol,
+                   'weight':weight,'height':height,'waist':waist,'hip':hip,'physically_active':physically_active,'eat':eat,
+                   'parent_diabetes':parent_diabetes,'relative_diabetes':relative_diabetes, 'bp':bp, 'glucose':glucose,
+                   'smoking':smoking,'heart_disease':heart_disease,'depression':depression,'HbA1c':HbA1c,'haem':haem,
+                   'bmi_calc':bmi_calc
+                   }
+
+            return render_to_response('Diabetes/Report.html', dic)
+        else:
+            form = Diabetes()
 
     return render(request, 'Diabetes/diabriskpred.html')
 

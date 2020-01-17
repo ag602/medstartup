@@ -31,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/medx/static/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SAIC" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -98,7 +98,9 @@
       <option name="presentableId" value="Default" />
       <updated>1575658840948</updated>
       <workItem from="1578390166140" duration="2058000" />
-      <workItem from="1578834274431" duration="11549000" />
+      <workItem from="1578834274431" duration="12219000" />
+      <workItem from="1579090020276" duration="20000" />
+      <workItem from="1579256680184" duration="4297000" />
     </task>
     <servers />
   </component>
@@ -109,5 +111,15 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1579257249565">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1579257249565" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1579259855055">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1579259855055" />
   </component>
 </project>
