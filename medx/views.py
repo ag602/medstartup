@@ -60,7 +60,7 @@ def diabriskpred(request):
                                               heart_disease=heart_disease,
                                               depression=depression,
                                               HbA1c=HbA1c,
-                                              haem=haem,
+                                              haem=haem
                                               )
 
             context.save()
