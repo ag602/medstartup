@@ -29,6 +29,7 @@ class contact(models.Model):
     message = models.CharField(max_length=2000, null=True, blank=True,default=None)
 
 class diabetes(models.Model):
+    name = models.CharField(max_length=100, null=True, blank=True, default=None)
     gender = models.CharField(max_length=100, choices=gender_choices, null=True)
     age = models.IntegerField(null=True, blank=True)
     total_cholestrol = models.IntegerField(null=True, blank=True)

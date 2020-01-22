@@ -23,6 +23,7 @@ def diabriskpred(request):
         form = Diabetes(request.POST)
 
         if form.is_valid():
+            name = form.cleaned_data['name']
             gender = form.cleaned_data['gender']
             age = form.cleaned_data['age']
             total_cholestrol = form.cleaned_data['total_cholestrol']
@@ -42,7 +43,8 @@ def diabriskpred(request):
             depression = form.cleaned_data['depression']
             HbA1c = form.cleaned_data['HbA1c']
             haem = form.cleaned_data['haem']
-            context = diabetes.objects.create(gender=gender,
+            context = diabetes.objects.create(name =name,
+                                              gender=gender,
                                               age=age,
                                               total_cholestrol=total_cholestrol,
                                               hdl_cholestrol=hdl_cholestrol,
@@ -65,7 +67,7 @@ def diabriskpred(request):
             context.save()
             g = (weight*10000) / (height * height)
             bmi_calc = float("{0:.2f}".format(g))
-            dic = {'age':age, 'gender':gender, 'total_cholestrol':total_cholestrol,'hdl_cholestrol':hdl_cholestrol,
+            dic = {'name':name,'age':age, 'gender':gender, 'total_cholestrol':total_cholestrol,'hdl_cholestrol':hdl_cholestrol,
                    'weight':weight,'height':height,'waist':waist,'hip':hip,'physically_active':physically_active,'eat':eat,
                    'parent_diabetes':parent_diabetes,'relative_diabetes':relative_diabetes, 'bp':bp, 'glucose':glucose,
                    'smoking':smoking,'heart_disease':heart_disease,'depression':depression,'HbA1c':HbA1c,'haem':haem,
