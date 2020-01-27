@@ -3,7 +3,70 @@
 {% load staticfiles %}
 
 {% block content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <style type="text/css">
+
+
+ .row {
+	 padding: 40px 0;
+}
+ .progress-label {
+	 display: block;
+	 text-align: left;
+	 font-size: 14px;
+	 opacity: 0.7;
+}
+ .progress {
+	 width: 30%;
+	 height: 10px;
+     left: 50px;
+}
+ .progress-wrap {
+	 background: #8EC840;
+	 margin: 10px 0;
+	 overflow: hidden;
+	 position: relative;
+     border-radius: 0!important;
+}
+ .progress-wrap .progress-bar {
+	 background: #2C2C2C;
+	 left: 0;
+	 position: absolute;
+	 top: 0;
+	 border-radius: 0!important;
+}
+
+ .progress1-label {
+	 display: block;
+	 text-align: left;
+	 font-size: 14px;
+	 opacity: 0.7;
+}
+ .progress1 {
+	 width: 37.9%;
+	 height: 10px;
+     left: 490px
+}
+ .progress1-wrap {
+	 background: #8EC840;
+	 margin: 10px 0;
+	 overflow: hidden;
+	 position: relative;
+}
+ .progress1-wrap .progress1-bar1 {
+	 background: #2C2C2C;
+	 left: 0;
+	 position: absolute;
+	 top: 0;
+}
+ .progress1-wrap {
+
+ }
+
 header, footer {
 display: none}
 /*!
@@ -57,7 +120,7 @@ display: none}
 .ls18{letter-spacing:-0.116928px;}
 .ls7{letter-spacing:-0.105600px;}
 .ls13{letter-spacing:-0.104832px;}
-.lse{letter-spacing:-0.096768px;}
+.lse{letter-spacing:-2px;}
 .ls19{letter-spacing:-0.084480px;}
 .ls1a{letter-spacing:-0.080256px;}
 .lsd{letter-spacing:-0.064512px;}
@@ -426,22 +489,91 @@ display: none}
 }
 </style>
 
+
 <div id="pf1" class="pf w0 h0" data-page-no="1">
-    <div class="pc pc1 w0 h0">
-        <img class="bi x0 y0 w1 h1" alt="" src="data:image/png;base64,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r4wNF07NKbIDz3ByDAAAmlc6KaV169ZFxJFHHjmdn2hRFHmeX3zxxZs3b55WT6ynp2fJkiVHH330ggULFi5c+Kxfv3r16nvuuWfDhg39/f17/+3SpUvPOeec2HJVrDu36d9KJV52b3QsmOY/sjPixxUAAPZHdaY80XKFwze96U2XXHJJs1eff0aDg4PlGbPyj3suzT9nzpy+vr7+/v5t27aNjo7uz7Vna9as2blz56z5K+P3n272SveHvHX6xxgAALSSGXbD34ULF07twh7Pqn8PGzZsuOOOO8pTYfu/EMg111wTEXHkZU193p2L4ojPjN33DAAA0GN7SymdeeaZU7X2fXOsWbPm8ccfj56l0buieVtdcklERJZ7SQAAgB7bt3IxjLPPPrvZN2hurq997WsRTbwP2LyV0XeaFwMAAOixZ7dkyZJpPmvxBXrooYceeuihJp0iq86Loy43UxEAAPTYfilnLe65ckbr+eY3vxlRniKrTOZ2KrH0+xFmKgIAgB7bP+WsxfPPP79Wq7XqgdmyZcvYKbJ5b5jEzRz2CTccAwAAPfac9fb2vvnNb27hY3PppZeOJdMknSI78Iw49B1mKgIAgB57PpYsWfInf/InrXpshoaG7rnnnuhYMCmnyLqPjWOvjlSYqQgAAHrs+UgpnX766X/4h3/YqofnW9/6VqTGxJ8iq86L466NcNkYAADosecry7KiKM4+++zFixe35OEZHh6+c83aiT5FVok/WhUdC/z0AwCAHnth30CeR8Tb3/72Vk2yq6++OlIRR10eeffExNhx3xFjAACgxybSOeec09PT03pHaHh4+OZVt0REvOidExNjbv0MAAB6bGL19va+613vaskku+6664qiEYs+9MJOkYkxAADQY5OcZK03cbFer99ww40RL+QUmRgDAAA9NvlJ1pLXkt14442NRv15niKrzhNjAACgx5rk7W9/e4stgl8UxY03/iQiYsklzznG/miVGAMAAD3WvHo5++yzW+xW0T/+8Y9HR0di/sroXLS//073sZa2BwAAPdbc7yrPy1tFv/Wtb63Vai3zff3wh9dFRCy+cL+++pC3xR/dIsYAAECPNVuWZRGxZMmS973vfX19fa3xTd1yyy07hwb34xRZJY68PI74TKTCjzgAAOixKdPb2/uBD3zg5JNPLu8cPdNd853vRjzjKbLORfGye2P+ykhFZLkfcQAA0GNTKaV05pln/vVf/3UL3J1szZo1O3fujPkro/vYvf6yEoe8LU68a2yOohgDAAA9NuXG5y5++MMfboETZV/5ylciIo687Emf7VwUy38RR3wmUvJjDQAAemzaKU+UXXDBBQsWzOBVLjZu3Pj4449Hz9LoXRERkXfHYRfFiXdFz9KyPv1YAwCAHpt2yhNlCxcufPe73/2mN71p5k5f/NrXvhYRccQ/xryVcfLmOPQdTosBAMCMU23Pb7soiuXLly9fvvz666//+c9/Pjo6OrOe/+bNmwcGBnp7l8ZRl4+t2+G0GAAA6LEZobyErLxH2emnn3799dfffvvt/f39M+KZL1u27E//9E97e3vHPmXdDgAA0GMzTjl9cbzKVq9e/ZOf/GTz5s3T89nWarVTTjllxYoVT5QYAACgx1qgysZnMA4MDNx444233nrrNJnEmOf5i1/84hUrVixfvrysR4cMAABaJEZSSuvWrYuII4880u7Y0/r163/xi1/89re/naowW7BgwXHHHTd+QiyllLlILMKPKwAALcP5sae1ZMmSJUuWlGG2du3au+++uwkXmNVqtcMPP/ylL33pK17xivIz4yfExBgAAOixNg2zM888MyJWr169cePG3/72tzt27BgcHJyQx+/r61uwYMFLX/rSww8/fOHCheUni6IoFx2RYQAAoMeIlFJ5jdn4Z1avXj04OLhp06Zdu3aVC4GMjo7us9NqtVp5u7POzs5DDjmku7t70aJFCxYsGA+wssHGPy5jDAAA0GNE7HWqqsyzF/KAewaYBgMAgHYjACYsz57P3hdgAACgxwAAANBjAAAAegwAAAA9BgAAoMcAAADQYwAAAHoMAAAAPQYAAKDHAAAAeBrV8Y/WrVtndwAAADSN82MAAABTI0sp2QsAAADNV7ULaGU39doHAABMW+YrAgAA6DEAAAA9BgAAwGSzngcAAMDUcH4MAABAjwEAAOgxAAAA9BgAAEBretL9oOecdZ49AsCk2vbtS407ALTnwLc358cAAACmhh4DYMo881uGAKDHAAAA0GMAAAB6DAAAAD0GAACgxwAAANBjAAAAegwAAAA9BgAAoMcAAAD0GAAAAHoMAABAjwEAAKDHAAAA9BgAAAB6DAAAQI8BAACgxwAAAPQYAAAAegwAAECPAQAAoMcAAAD0GAAAgB4D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"/>
+    <div class="pc pc1 w0 h0" style="border: 3px solid #0e5563">
         <div class="c x1 y1 w2 h2"><div class="t m0 x2 h3 y2 ff1 fs0 fc0 sc0 ls0 ws0">DiabetX</div></div>
         <div class="t m0 x3 h4 y2 ff1 fs1 fc0 sc0 ls2 ws0">
             <span class="ls1">  MEDICAL REPORT  </span></div>
-        <div class="t m0 x1 h5 y3 ff1 fs2 fc0 sc0 ls1 ws0">PERSONAL INFORMATION </div>
-        <div class="c x4 y4 w3 h6"><div class="t m0 x2 h7 y5 ff2 fs3 fc0 sc0 ls1 ws0"> <span class="ff1 ls3">Name</span> </div>
+        <div class="t m0 x1 h5 y3 ff1 fs2 fc0 sc0 ls1 ws0">PERSONAL INFORMATION<hr style="border-top: 8px solid #ffc107;width: 269%" > </div>
+
+
+        <div class="section1">
+            <div class="c x4 y4 w3 h6" style="background-color: #ffc107"><div class="t m0 x2 h7 y5 ff2 fs3 fc0 sc0 ls1 ws0"> <span class="ff1 ls3">Name</span> </div>
         </div>
-        <div class="c x5 y4 w4 h6"><div class="t m0 x2 h7 y5 ff1 fs3 fc1 sc0 ls1 ws0">Shubham Jain</div></div>
-        <div class="c x6 y4 w5 h6"><div class="t m0 x2 h7 y5 ff1 fs3 fc0 sc0 ls1 ws0"> <span class="ls3">Age</span>
-        </div></div><div class="c x7 y4 w6 h6"><div class="t m0 x2 h7 y5 ff1 fs3 fc1 sc0 ls1 ws0">{{ age }}</div></div>
-        <div class="c x4 y6 w3 h8"><div class="t m0 x2 h7 y7 ff1 fs3 fc0 sc0 ls1 ws0"> </div></div><div class="c x4 y8 w3 h6">
-        <div class="t m0 x8 h7 y9 ff1 fs3 fc0 sc0 ls4 ws0">Gender<span class="ls1"> </span></div></div><div class="c x5 y8 w4 h6">
-        <div class="t m0 x2 h7 y9 ff2 fs3 fc1 sc0 ls1 ws0">{{ gender }}</div></div><div class="c x6 y8 w5 h6">
+        <div class="c x5 y4 w4 h6" style="background-color:#f7f7f7"><div class="t m0 x2 h7 y5 ff1 fs3 fc1 sc0 ls1 ws0">{{ name }}</div></div>
+        <div class="c x6 y4 w5 h6" style="background-color: #ffc107"><div class="t m0 x2 h7 y5 ff1 fs3 fc0 sc0 ls1 ws0"> <span class="ls3">Age</span>
+        </div></div><div class="c x7 y4 w6 h6" style="background-color:#f7f7f7"><div class="t m0 x2 h7 y5 ff1 fs3 fc1 sc0 ls1 ws0">{{ age }}</div></div>
+        <div class="c x4 y6 w3 h8"><div class="t m0 x2 h7 y7 ff1 fs3 fc0 sc0 ls1 ws0"> </div></div><div class="c x4 y8 w3 h6" style="background-color: #ffc107">
+        <div class="t m0 x8 h7 y9 ff1 fs3 fc0 sc0 ls4 ws0">Gender<span class="ls1"> </span></div></div><div class="c x5 y8 w4 h6" style="background-color:#f7f7f7">
+        <div class="t m0 x2 h7 y9 ff2 fs3 fc1 sc0 ls1 ws0">{{ gender }}</div></div><div class="c x6 y8 w5 h6" style="background-color: #ffc107">
         <div class="t m0 x2 h7 y9 ff1 fs3 fc0 sc0 ls1 ws0"> <span class="ls5">Height</span> </div></div>
+<<<<<<< HEAD
+        <div class="c x7 y8 w6 h6" style="background-color:#f7f7f7"><div class="t m0 x2 h7 y9 ff2 fs3 fc1 sc0 ls1 ws0">{{ height }}</div></div>
+        <div class="c x4 ya w3 h6" style="background-color: #ffc107"><div class="t m0 x2 h7 yb ff1 fs3 fc0 sc0 ls1 ws0"> <span class="ls3">Nationality</span> </div></div>
+        <div class="c x5 ya w4 h6" style="background-color:#f7f7f7" ><div class="t m0 x2 h7 yb ff2 fs3 fc1 sc0 ls1 ws0">Indian</div></div><div class="c x6 ya w5 h6" style="background-color: #ffc107">
+                <div class="t m0 x2 h7 yb ff1 fs3 fc0 sc0 ls1 ws0"> <span class="ls6">Weight</span> </div></div><div class="c x7 ya w6 h6" style="background-color:#f7f7f7">
+
+
+            </div>
+        <div class="t m0 x2 h7 yb ff2 fs3 fc1 sc0 ls1 ws0">{{  weight }}</div></div>
+
+        <div class="t m0 x1 h5 yc ff1 fs2 fc0 sc0 ls1 ws0">TESTS<hr style="border-top: 8px solid #ffc107;width: 269%" ></div>
+        <div class="c x4 yd w7 h8" style="background-color: #0e5563"><div class="t m0 x9 h7 ye ff1 fs3 fc2 sc0 ls7 ws0">Test Name<span class="ls1"> </span></div></div>
+        <div class="c xa yd w8 h8" style="background-color: #0e5563"><div class="t m0 x9 h7 ye ff1 fs3 fc2 sc0 ls8 ws0">Result<span class="ls1"> </span></div></div>
+        <div class="c xb yd w9 h8" style="background-color: #0e5563"><div class="t m0 x9 h7 ye ff1 fs3 fc2 sc0 ls9 ws0">Unit<span class="ls1"> </span></div></div>
+        <div class="c xc yd wa h8" style="background-color: #0e5563"><div class="t m0 x9 h7 ye ff1 fs3 fc2 sc0 ls8 ws0">Bio Ref Interval<span class="ls1"> </span></div></div>
+
+
+        <div class="c x4 yf w7 h6" style="background-color:#f7f7f7"><div class="t m0 x9 h7 y9 ff2 fs3 fc1 sc0 lsa ws0">HbA1c<span class="ls1"> </span></div></div>
+        <div class="c xa yf w8 h6" style="background-color:#f7f7f7"><div class="t m0 xd h7 y10 ff1 fs3 fc3 sc0 ls1 ws0">{{ HbA1c }}<span class="fc1"> </span></div></div>
+        <div class="c xb yf w9 h6" style="background-color:#f7f7f7"><div class="t m0 xe h7 y9 ff2 fs3 fc1 sc0 ls1 ws0">% </div></div>
+        <div class="c xc yf wa h6" style="background-color: #f7f7f7"><div class="t m0 xf h7 y9 ff2 fs3 fc1 sc0 ls1 ws0">4-6 </div></div>
+        <div class="c x4 y11 wb h9" style="background-color:#f7f7f7"><div class="t m0 x9 ha y12 ff3 fs4 fc3 sc0 lsb ws0">HbA1c is average blood glucose level for the last two to three months. High HbA1c indicates high sugar level in your blood.</div>
+        <div class="t m0 x9 ha y13 ff3 fs4 fc3 sc0 lsc ws0">hence increasing the risk of<span class="_ _0"></span> diabetes<span class="ls1">. <span class="lse">It is a measure of how</span> <span class="_ _1"></span><span class="lsb">well<span class="ls1"> <span class="lsc">diabetes is control<span class="_ _0"></span>led.</span> </span></span></span></div></div>
+
+<div id="root" style="margin-top: 386px; margin-left: 52px">
+  <!-- This div's content will be managed by React. -->
+</div>
+
+	<div class="container" style="display: inline-block">
+
+        <div class="bar" style="margin-top: 100px">
+			<div class="progress-bar-wrapper">
+				<span class="progress-label"> </span>
+                <br>
+				<div class="progress-wrap progress" data-progress-percent="72">
+					<div class="progress-bar progress"></div>
+				</div>
+			</div>
+	</div>
+
+    </div>
+
+
+        <div class="bar1" style="margin-top: -50px!important;">
+			<div class="progress1-bar1-wrapper">
+				<span class="progress1-label"> </span>
+                <br>
+				<div class="progress1-wrap progress1" data-progress-percent="72">
+					<div class="progress1-bar1 progress1"></div>
+				</div>
+			</div>
+	</div>
+        <div class="t m0 x10 h5 y14 ff1 fs2 fc0 sc0 ls1 ws0">RISK SCORE </div><div class="t m0 x10 ha y15 ff3 fs4 fc1 sc0 lsb ws0">Content about Ri<span class="_ _0"></span>sk Score <span class="ls10">Body<span class="_ _0"></span> Mass Index (BMI)<span class="_ _0"></span><span class="ls1"> <span class="lsd">is a measu<span class="_ _1"></span>rement of a p<span class="_ _1"></span>erson’s weight with</span></span></span></div><div class="t m0 x10 ha y16 ff3 fs4 fc1 sc0 lse ws0">respect to his or her height. It is mo<span class="_ _1"></span>re of an indicator than a dire<span class="_ _1"></span>ct measurement of a<span class="_ _1"></span> person’s total body fat.<span class="ls1"> </span></div><br><br><div class="t m0 x10 h5 y17 ff1 fs2 fc0 sc0 ls1 ws0">FUTURE IMPLICATIONS </div><div class="t m0 x10 ha y18 ff3 fs4 fc1 sc0 lsb ws0">Chances of devel<span class="_ _0"></span>oping diabetes<span class="_ _0"></span> in next 10 <span class="_ _0"></span>years are x<span class="_ _0"></span><span class="ls1">-<span class="lsf">y%. About the major <span class="lse">factor (co</span></span>-morbidities, </span></div>
+
+        <div class="t m0 x10 ha y19 ff3 fs4 fc1 sc0 lsf ws0">smoking, high BMI as per input).<hr style="border-bottom: 8px solid #ffc107;width: 303%" ><span class="ls1"> </span></div><div class="c x11 y1a wc h6" style="background-color: #0e5563"><div class="t m0 x9 h7 y1b ff1 fs3 fc2 sc0 ls8 ws0">BMI<span class="ls1"> </span></div></div><div class="c x12 y1a wd h6" style="background-color: #0e5563"><div class="t m0 x9 h7 y1b ff1 fs3 fc2 sc0 ls12 ws0">Cholesterol<span class="ls1"> </span></div></div><div class="c x11 y1c wc hb"><div class="t m0 x9 ha y1d ff4 fs4 fc1 sc0 lsb ws0">Body Mass Index (BMI<span class="_ _0"></span>) is a measuremen<span class="_ _0"></span>t of total <span class="_ _0"></span>body </div><div class="t m0 x9 ha y1e ff4 fs4 fc1 sc0 ls13 ws0">fat. Higher the BMI, hig<span class="_ _1"></span>her will be the risk of developing </div><div class="t m0 x9 h7 y1f ff4 fs4 fc1 sc0 lsb ws0">Diabetes.
+
+        <span class="ff1 fs3 fc0 ls1"> </span></div><div class="t m0 x13 ha y20 ff4 fs4 fc1 sc0 ls1 ws0"> </div><div class="t m0 x9 ha y21 ff4 fs4 fc1 sc0 ls11 ws0">Measured Val<span class="_ _0"></span>ue:<span class="ls1"> {{ bmi_calc }}</span></div><div class="t m0 x9 h7 y7 ff4 fs4 fc1 sc0 lsb ws0">Normal Value:<span class="ff1 fs3 fc0 ls1"> 18.5 to 24.9</span></div></div><div class="c x12 y1c wd hb"><div class="t m0 x9 ha y1d ff4 fs4 fc1 sc0 ls1 ws0">D<span class="lse">iabetes tends<span class="_ _1"></span> to lower<span class="ls1"> <span class="ls14">good cholesterol</span> (<span class="lsb">HDL</span>-C) <span class="lsc">and raise </span></span></span></div><div class="t m0 x9 ha y1e ff4 fs4 fc1 sc0 ls14 ws0">bad cholesterol<span class="ls1"> (</span>LDL<span class="ls1">-C)<span class="lse">, which <span class="lsc">also </span>increases th<span class="_ _1"></span>e risk for </span></span></div><div class="t m0 x9 ha y1f ff4 fs4 fc1 sc0 ls14 ws0">heart disease and s<span class="_ _0"></span>troke.<span class="ls1"> </span></div><div class="t m0 x13 ha y20 ff4 fs4 fc1 sc0 ls1 ws0"> </div><div class="t m0 x9 ha y21 ff4 fs4 fc1 sc0 ls11 ws0">Measured Value:<span class="ls1"> {{ total_cholestrol }}</span></div><div class="t m0 x9 ha y7 ff4 fs4 fc1 sc0 lsb ws0">Normal Value:<span class="ls1"> </span></div></div><div class="c x11 y22 wc h6" style="background-color: #0e5563"><div class="t m0 x9 h7 y23 ff1 fs3 fc2 sc0 ls15 ws0">Smoking<span class="ff2 ls1"> </span></div></div><div class="c x12 y22 wd h6" style="background-color: #0e5563"><div class="t m0 x9 h7 y23 ff1 fs3 fc2 sc0 ls15 ws0">Exercise</div></div><div class="c x11 y24 wc hc"><div class="t m0 x9 ha y25 ff4 fs4 fc1 sc0 ls10 ws0">Smoking raises blood sugar which makes body more</div><div class="t m0 x9 ha y26 ff4 fs4 fc1 sc0 ls18 ws0">resistant to insulin, which leads to higher blood sugar </div><div class="t m0 x9 ha y27 ff4 fs4 fc1 sc0 lse ws0">levels leading to serious complications from Diabetes, </div></div><div class="c x11 y28 wc hd"><div class="t m0 x9 ha y29 ff4 fs4 fc1 sc0 lse ws0">including problems with kidneys, heart, blood vessels.</div></div><div class="c x11 y24 wc hc"><div class="t m0 x13 ha y2a ff4 fs4 fc1 sc0 ls1 ws0"> </div></div><hr style="width: 8px; color: #FFC107!important; "><div class="c x12 y24 wd hc"><div class="t m0 x9 ha y2b ff4 fs4 fc1 sc0 ls10 ws0">Exercise<span class="ls1"> <span class="ls14">helps</span> <span class="lse">in the maintenance o<span class="_ _1"></span>f body weight an<span class="_ _1"></span>d </span></span></div><div class="t m0 x9 ha y2c ff4 fs4 fc1 sc0 ls14 ws0">blood sugar levels<span class="lse">. It<span class="ls1"> </span>improves blood circulatio<span class="_ _1"></span>n, reduces </span></div><div class="t m0 x9 ha y2d ff4 fs4 fc1 sc0 ls13 ws0">the risk of heart diseas<span class="_ _1"></span>e and stroke and im<span class="_ _1"></span>proves whole<span class="ls1">-</span></div><div class="t m0 x9 ha y2e ff4 fs4 fc1 sc0 ls14 ws0">body blood glucose leve<span class="_ _0"></span>ls.<span class="ls1"> </span></div></div>
+        <div class="t m0 x1 h5 y2f ff1 fs2 fc0 sc0 ls1 ws0">LIFESTYLE SUGGESTIONS:<hr style="border-top: 8px solid #ffc107;width: 269%" >
+</div><div class="t m0 x1 h7 y30 ff1 fs3 fc1 sc0 ls19 ws0">[For Prediabetes] <span class="ff2 ls9">Rather than viewing <span class="ls5">prediabetes as a steppi<span class="_ _0"></span>ng stone to diabetes, i<span class="_ _0"></span>t may be helpful to s<span class="_ _0"></span>ee it as </span></span></div><div class="t m0 x1 h7 y31 ff2 fs3 fc1 sc0 lsa ws0">a motivator for making changes<span class="_ _0"></span> that can help reduce your r<span class="_ _0"></span>isk.<span class="ls1"> </span></div><div class="t m0 x1 h7 y32 ff2 fs3 fc1 sc0 ls15 ws0">Eating the right foods and adopting other lifestyle behavio<span class="ls1">u<span class="ls1a">rs promote</span>s <span class="ls1b">healthy blood sugar and insulin l<span class="_ _0"></span>evels </span></span></div><div class="t m0 x1 h7 y33 ff2 fs3 fc1 sc0 ls5 ws0">can<span class="ls1"> <span class="ls1c">give the best chance at avoi<span class="_ _0"></span>ding diabetes.
+
+    </span> </span></div><div class="t m0 x14 he y34 ff2 fs4 fc1 sc0 ls1d ws0">1.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls1e">Drinking water<span class="_ _0"></span> instead of <span class="_ _0"></span>other beverages<span class="_ _0"></span> may help cont<span class="_ _0"></span>rol blood su<span class="_ _0"></span>gar and insul<span class="_ _0"></span>in levels,<span class="_ _0"></span> reducing t<span class="_ _0"></span>he risk of </span></div><div class="t m0 x15 he y35 ff2 fs4 fc1 sc0 ls1f ws0">diabetes.<span class="ls1"> </span></div><div class="t m0 x14 he y36 ff2 fs4 fc1 sc0 ls1d ws0">2.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls20">Avoiding fo<span class="_ _0"></span>ods high i<span class="_ _0"></span>n refined c<span class="_ _0"></span>arbs and sugar<span class="_ _0"></span>. Consuming <span class="_ _0"></span>a good fibr<span class="_ _0"></span>e source at <span class="_ _0"></span>each meal can <span class="_ _0"></span>help </span></div><div class="t m0 x15 he y37 ff2 fs4 fc1 sc0 ls10 ws0">prevent spikes i<span class="_ _0"></span>n blood sugar and i<span class="_ _0"></span>nsulin levels,<span class="_ _0"></span> reducing the ri<span class="_ _0"></span>sk of developing <span class="_ _0"></span>diabetes.<span class="ls1"> </span></div><div class="t m0 x14 he y38 ff2 fs4 fc1 sc0 ls1d ws0">3.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls1e">Drinking coff<span class="_ _0"></span>ee or tea may <span class="_ _0"></span>re<span class="ls1f">duce blood sugar l<span class="_ _0"></span>evels, increas<span class="_ _0"></span>e insulin sens<span class="_ _0"></span>itivity,<span class="_ _0"></span> reducing risk <span class="_ _0"></span>of diabetes.<span class="ls1"> </span></span></span></div><div class="t m0 x14 he y39 ff2 fs4 fc1 sc0 ls1d ws0">4.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls21">Performing physical acti<span class="_ _0"></span>vity on a regular<span class="_ _0"></span> basis can increase <span class="_ _0"></span>insulin secreti<span class="_ _0"></span>on and sensitivi<span class="_ _0"></span>ty, which may help </span></div><div class="t m0 x15 he y3a ff2 fs4 fc1 sc0 ls10 ws0">prevent the progress<span class="_ _0"></span>ion from prediabetes<span class="_ _0"></span> to diabetes.<span class="ls1"> </span></div><div class="t m0 x14 he y3b ff2 fs4 fc1 sc0 ls1d ws0">5.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls22">Losing <span class="ls23">weight may s<span class="_ _0"></span>ignifica<span class="_ _0"></span>ntly redu<span class="_ _0"></span>ce the ri<span class="_ _0"></span>sk of di<span class="_ _0"></span>abetes. Carr<span class="_ _0"></span>ying exces<span class="_ _0"></span>s weight,<span class="_ _0"></span> particul<span class="_ _0"></span>arly in <span class="_ _0"></span>the </span></span></div><div class="t m0 x15 he y3c ff2 fs4 fc1 sc0 ls10 ws0">abdominal area, incr<span class="_ _0"></span>eases the likel<span class="_ _0"></span>ihood of developing di<span class="_ _0"></span>abetes.<span class="ls1"> </span></div><div class="t m0 x14 he y3d ff2 fs4 fc1 sc0 ls1d ws0">6.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls24">Smoking is strongly linked to the risk of diabetes. Quitti<span class="_ _0"></span>ng has been shown to reduce this <span class="ls13">risk over time<span class="_ _1"></span>.<span class="ls1"> </span></span></span></div><div class="t m0 x14 he y3e ff2 fs4 fc1 sc0 ls1d ws0">7.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls23">Consuming fo<span class="_ _0"></span>ods high i<span class="_ _0"></span>n vitamin<span class="_ _0"></span> D or tak<span class="_ _0"></span>ing suppl<span class="_ _0"></span>ements can h<span class="_ _0"></span>elp optimi<span class="_ _0"></span>ze vitamin<span class="_ _0"></span> D blood l<span class="_ _0"></span>evels, whi<span class="_ _0"></span>ch can </span></div><div class="t m0 x15 he y3f ff2 fs4 fc1 sc0 ls13 ws0">reduce your risk of d<span class="_ _1"></span>iabetes.<span class="ls1"> </span></div></div><div class="pi" data-data='{"ctm":[1.500000,0.000000,0.000000,1.500000,0.000000,0.000000]}'></div></div>
+
+
+
+    <div class="loading-indicator">
+=======
         <div class="c x7 y8 w6 h6"><div class="t m0 x2 h7 y9 ff2 fs3 fc1 sc0 ls1 ws0">{{ height }}</div></div>
         <div class="c x4 ya w3 h6"><div class="t m0 x2 h7 yb ff1 fs3 fc0 sc0 ls1 ws0"> <span class="ls3">Nationality</span> </div></div>
         <div class="c x5 ya w4 h6"><div class="t m0 x2 h7 yb ff2 fs3 fc1 sc0 ls1 ws0">Indian</div></div><div class="c x6 ya w5 h6">
@@ -452,7 +584,405 @@ display: none}
         <div class="c xb yd w9 h8"><div class="t m0 x9 h7 ye ff1 fs3 fc2 sc0 ls9 ws0">Unit<span class="ls1"> </span></div></div>
         <div class="c xc yd wa h8"><div class="t m0 x9 h7 ye ff1 fs3 fc2 sc0 ls8 ws0">Bio Ref Interval<span class="ls1"> </span></div></div><div class="c x4 yf w7 h6"><div class="t m0 x9 h7 y9 ff2 fs3 fc1 sc0 lsa ws0">HbA1c<span class="ls1"> </span></div></div><div class="c xa yf w8 h6"><div class="t m0 xd h7 y10 ff1 fs3 fc3 sc0 ls1 ws0">{{ HbA1c }}<span class="fc1"> </span></div></div><div class="c xb yf w9 h6"><div class="t m0 xe h7 y9 ff2 fs3 fc1 sc0 ls1 ws0">% </div></div><div class="c xc yf wa h6"><div class="t m0 xf h7 y9 ff2 fs3 fc1 sc0 ls1 ws0">4-6 </div></div><div class="c x4 y11 wb h9"><div class="t m0 x9 ha y12 ff3 fs4 fc3 sc0 lsb ws0">HbA1c is <span class="lsc">average blood <span class="_ _0"></span>glucose <span class="lsd">level<span class="ls1"> <span class="lse">for the last two to three<span class="_ _1"></span> months<span class="ls1">. H<span class="lsd">igh<span class="_ _1"></span> HbA1c<span class="ls1"> </span>indic<span class="_ _1"></span>ates high<span class="ls1"> <span class="lsf">sugar </span></span>le<span class="lsf">vel </span>in you<span class="_ _1"></span>r blood<span class="ls1"> </span></span></span></span></span></span></span></div><div class="t m0 x9 ha y13 ff3 fs4 fc3 sc0 lsc ws0">hence increasing the risk of<span class="_ _0"></span> diabetes<span class="ls1">. <span class="lse">It is a measure of how</span> <span class="_ _1"></span><span class="lsb">well<span class="ls1"> <span class="lsc">diabetes is control<span class="_ _0"></span>led.</span> </span></span></span></div></div><div class="t m0 x10 h5 y14 ff1 fs2 fc0 sc0 ls1 ws0">RISK SCORE </div><div class="t m0 x10 ha y15 ff3 fs4 fc1 sc0 lsb ws0">Content about Ri<span class="_ _0"></span>sk Score <span class="ls10">Body<span class="_ _0"></span> Mass Index (BMI)<span class="_ _0"></span><span class="ls1"> <span class="lsd">is a measu<span class="_ _1"></span>rement of a p<span class="_ _1"></span>erson’s weig<span class="_ _1"></span>ht with respe<span class="_ _1"></span>ct </span></span></span></div><div class="t m0 x10 ha y16 ff3 fs4 fc1 sc0 lse ws0">to his or her height. It is mo<span class="_ _1"></span>re of an indicator than a dire<span class="_ _1"></span>ct measurement of a<span class="_ _1"></span> person’s total body fat.<span class="ls1"> </span></div><br><br><div class="t m0 x10 h5 y17 ff1 fs2 fc0 sc0 ls1 ws0">Personalized Glycemic Goal </div><div class="t m0 x10 ha y18 ff3 fs4 fc1 sc0 lsb ws0">Chances of devel<span class="_ _0"></span>oping diabetes<span class="_ _0"></span> in next 10 <span class="_ _0"></span>years are x<span class="_ _0"></span><span class="ls1">-<span class="lsf">y%. About the major <span class="lse">factor (co</span></span>-<span class="ls11">morbiditi<span class="_ _0"></span>es, </span></span></div><div class="t m0 x10 ha y19 ff3 fs4 fc1 sc0 lsf ws0">smoking, high BMI as per input).<span class="ls1"> </span></div><div class="c x11 y1a wc h6"><div class="t m0 x9 h7 y1b ff1 fs3 fc2 sc0 ls8 ws0">BMI<span class="ls1"> </span></div></div><div class="c x12 y1a wd h6"><div class="t m0 x9 h7 y1b ff1 fs3 fc2 sc0 ls12 ws0">Cholesterol<span class="ls1"> </span></div></div><div class="c x11 y1c wc hb"><div class="t m0 x9 ha y1d ff4 fs4 fc1 sc0 lsb ws0">Body Mass Index (BMI<span class="_ _0"></span>) is a measuremen<span class="_ _0"></span>t of total <span class="_ _0"></span>body </div><div class="t m0 x9 ha y1e ff4 fs4 fc1 sc0 ls13 ws0">fat. Higher the BMI, hig<span class="_ _1"></span>her will be the risk of de<span class="_ _1"></span>veloping </div><div class="t m0 x9 h7 y1f ff4 fs4 fc1 sc0 lsb ws0">Diabetes.<span class="ff1 fs3 fc0 ls1"> </span></div><div class="t m0 x13 ha y20 ff4 fs4 fc1 sc0 ls1 ws0"> </div><div class="t m0 x9 ha y21 ff4 fs4 fc1 sc0 ls11 ws0">Measured Val<span class="_ _0"></span>ue:<span class="ls1"> {{ bmi_calc }}</span></div><div class="t m0 x9 h7 y7 ff4 fs4 fc1 sc0 lsb ws0">Normal Value:<span class="ff1 fs3 fc0 ls1"> 18.5 to 24.9</span></div></div><div class="c x12 y1c wd hb"><div class="t m0 x9 ha y1d ff4 fs4 fc1 sc0 ls1 ws0">D<span class="lse">iabetes tends<span class="_ _1"></span> to lower<span class="ls1"> <span class="ls14">good cholesterol</span> (<span class="lsb">HDL</span>-C) <span class="lsc">and raise </span></span></span></div><div class="t m0 x9 ha y1e ff4 fs4 fc1 sc0 ls14 ws0">bad cholesterol<span class="ls1"> (</span>LDL<span class="ls1">-C)<span class="lse">, which <span class="lsc">also </span>increases th<span class="_ _1"></span>e risk for </span></span></div><div class="t m0 x9 ha y1f ff4 fs4 fc1 sc0 ls14 ws0">heart disease and s<span class="_ _0"></span>troke.<span class="ls1"> </span></div><div class="t m0 x13 ha y20 ff4 fs4 fc1 sc0 ls1 ws0"> </div><div class="t m0 x9 ha y21 ff4 fs4 fc1 sc0 ls11 ws0">Measured Value:<span class="ls1"> {{ total_cholestrol }}</span></div><div class="t m0 x9 ha y7 ff4 fs4 fc1 sc0 lsb ws0">Normal Value:<span class="ls1"> </span></div></div><div class="c x11 y22 wc h6"><div class="t m0 x9 h7 y23 ff1 fs3 fc2 sc0 ls15 ws0">Smoking<span class="ff2 ls1"> </span></div></div><div class="c x12 y22 wd h6"><div class="t m0 x9 h7 y23 ff1 fs3 fc2 sc0 ls15 ws0">Exercise<span class="ls1"> </span></div></div><div class="c x11 y24 wc hc"><div class="t m0 x9 ha y25 ff4 fs4 fc1 sc0 ls10 ws0">Smoking raises blood suga<span class="_ _0"></span>r<span class="ls1"> <span class="ls16">which <span class="ls17">make <span class="_ _0"></span>body more<span class="_ _0"></span> </span></span></span></div><div class="t m0 x9 ha y26 ff4 fs4 fc1 sc0 ls18 ws0">resistant to insulin, which lead<span class="ls1">s<span class="_ _1"></span> <span class="ls13">to higher blood su<span class="_ _1"></span>gar </span></span></div><div class="t m0 x9 ha y27 ff4 fs4 fc1 sc0 lse ws0">levels<span class="ls1"> </span>leading<span class="ls1"> <span class="ls13">to<span class="_ _1"></span> serious complicatio<span class="_ _1"></span>ns from <span class="ls1">D<span class="lse">iabetes<span class="_ _1"></span>, </span></span></span></span></div></div><div class="c x11 y28 wc hd"><div class="t m0 x9 ha y29 ff4 fs4 fc1 sc0 lse ws0">including prob<span class="_ _1"></span>lems with kidne<span class="_ _1"></span>ys, heart, blood v<span class="_ _1"></span>essels.</div></div><div class="c x11 y24 wc hc"><div class="t m0 x13 ha y2a ff4 fs4 fc1 sc0 ls1 ws0"> </div></div><div class="c x12 y24 wd hc"><div class="t m0 x9 ha y2b ff4 fs4 fc1 sc0 ls10 ws0">Exercise<span class="ls1"> <span class="ls14">helps</span> <span class="lse">in the maintenance o<span class="_ _1"></span>f body weight an<span class="_ _1"></span>d </span></span></div><div class="t m0 x9 ha y2c ff4 fs4 fc1 sc0 ls14 ws0">blood sugar levels<span class="lse">. It<span class="ls1"> </span>improves blood circulatio<span class="_ _1"></span>n, reduces </span></div><div class="t m0 x9 ha y2d ff4 fs4 fc1 sc0 ls13 ws0">the risk of heart diseas<span class="_ _1"></span>e and stroke and im<span class="_ _1"></span>proves whole<span class="ls1">-</span></div><div class="t m0 x9 ha y2e ff4 fs4 fc1 sc0 ls14 ws0">body blood glucose leve<span class="_ _0"></span>ls.<span class="ls1"> </span></div></div><div class="t m0 x1 h5 y2f ff1 fs2 fc0 sc0 ls1 ws0">LIFESTYLE SUGGESTIONS: </div><div class="t m0 x1 h7 y30 ff1 fs3 fc1 sc0 ls19 ws0">[For Prediabetes] <span class="ff2 ls9">Rather than viewing <span class="ls5">prediabetes as a steppi<span class="_ _0"></span>ng stone to diabetes, i<span class="_ _0"></span>t may be helpful to s<span class="_ _0"></span>ee it as </span></span></div><div class="t m0 x1 h7 y31 ff2 fs3 fc1 sc0 lsa ws0">a motivator for making changes<span class="_ _0"></span> that can help reduce your r<span class="_ _0"></span>isk.<span class="ls1"> </span></div><div class="t m0 x1 h7 y32 ff2 fs3 fc1 sc0 ls15 ws0">Eating the right foods and adopting other lifestyle behavio<span class="ls1">u<span class="ls1a">rs promote</span>s <span class="ls1b">healthy blood sugar and insulin l<span class="_ _0"></span>evels </span></span></div><div class="t m0 x1 h7 y33 ff2 fs3 fc1 sc0 ls5 ws0">can<span class="ls1"> <span class="ls1c">give the best chance at avoi<span class="_ _0"></span>ding diabetes.</span> </span></div><div class="t m0 x14 he y34 ff2 fs4 fc1 sc0 ls1d ws0">1.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls1e">Drinking water<span class="_ _0"></span> instead of <span class="_ _0"></span>other beverages<span class="_ _0"></span> may help cont<span class="_ _0"></span>rol blood su<span class="_ _0"></span>gar and insul<span class="_ _0"></span>in levels,<span class="_ _0"></span> reducing t<span class="_ _0"></span>he risk of </span></div><div class="t m0 x15 he y35 ff2 fs4 fc1 sc0 ls1f ws0">diabetes.<span class="ls1"> </span></div><div class="t m0 x14 he y36 ff2 fs4 fc1 sc0 ls1d ws0">2.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls20">Avoiding fo<span class="_ _0"></span>ods high i<span class="_ _0"></span>n refined c<span class="_ _0"></span>arbs and sugar<span class="_ _0"></span>. Consuming <span class="_ _0"></span>a good fibr<span class="_ _0"></span>e source at <span class="_ _0"></span>each meal can <span class="_ _0"></span>help </span></div><div class="t m0 x15 he y37 ff2 fs4 fc1 sc0 ls10 ws0">prevent spikes i<span class="_ _0"></span>n blood sugar and i<span class="_ _0"></span>nsulin levels,<span class="_ _0"></span> reducing the ri<span class="_ _0"></span>sk of developing <span class="_ _0"></span>diabetes.<span class="ls1"> </span></div><div class="t m0 x14 he y38 ff2 fs4 fc1 sc0 ls1d ws0">3.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls1e">Drinking coff<span class="_ _0"></span>ee or tea may <span class="_ _0"></span>re<span class="ls1f">duce blood sugar l<span class="_ _0"></span>evels, increas<span class="_ _0"></span>e insulin sens<span class="_ _0"></span>itivity,<span class="_ _0"></span> reducing risk <span class="_ _0"></span>of diabetes.<span class="ls1"> </span></span></span></div><div class="t m0 x14 he y39 ff2 fs4 fc1 sc0 ls1d ws0">4.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls21">Performing physical acti<span class="_ _0"></span>vity on a regular<span class="_ _0"></span> basis can increase <span class="_ _0"></span>insulin secreti<span class="_ _0"></span>on and sensitivi<span class="_ _0"></span>ty, which may help </span></div><div class="t m0 x15 he y3a ff2 fs4 fc1 sc0 ls10 ws0">prevent the progress<span class="_ _0"></span>ion from prediabetes<span class="_ _0"></span> to diabetes.<span class="ls1"> </span></div><div class="t m0 x14 he y3b ff2 fs4 fc1 sc0 ls1d ws0">5.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls22">Losing <span class="ls23">weight may s<span class="_ _0"></span>ignifica<span class="_ _0"></span>ntly redu<span class="_ _0"></span>ce the ri<span class="_ _0"></span>sk of di<span class="_ _0"></span>abetes. Carr<span class="_ _0"></span>ying exces<span class="_ _0"></span>s weight,<span class="_ _0"></span> particul<span class="_ _0"></span>arly in <span class="_ _0"></span>the </span></span></div><div class="t m0 x15 he y3c ff2 fs4 fc1 sc0 ls10 ws0">abdominal area, incr<span class="_ _0"></span>eases the likel<span class="_ _0"></span>ihood of developing di<span class="_ _0"></span>abetes.<span class="ls1"> </span></div><div class="t m0 x14 he y3d ff2 fs4 fc1 sc0 ls1d ws0">6.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls24">Smoking is strongly linked to the risk of diabetes. Quitti<span class="_ _0"></span>ng has been shown to reduce this <span class="ls13">risk over time<span class="_ _1"></span>.<span class="ls1"> </span></span></span></div><div class="t m0 x14 he y3e ff2 fs4 fc1 sc0 ls1d ws0">7.<span class="ff3 ls1"> <span class="_ _2"> </span></span><span class="ls23">Consuming fo<span class="_ _0"></span>ods high i<span class="_ _0"></span>n vitamin<span class="_ _0"></span> D or tak<span class="_ _0"></span>ing suppl<span class="_ _0"></span>ements can h<span class="_ _0"></span>elp optimi<span class="_ _0"></span>ze vitamin<span class="_ _0"></span> D blood l<span class="_ _0"></span>evels, whi<span class="_ _0"></span>ch can </span></div><div class="t m0 x15 he y3f ff2 fs4 fc1 sc0 ls13 ws0">reduce your risk of d<span class="_ _1"></span>iabetes.<span class="ls1"> </span></div><div class="c x16 y40 we hf"><div class="t m1 x17 h10 y41 ff2 fs5 fc2 sc0 ls1 ws0">C</div></div><div class="c x18 y42 wf h11"><div class="t m1 x19 h10 y43 ff2 fs5 fc2 sc0 ls25 ws0">ol</div><div class="t m1 x1a h10 y44 ff2 fs5 fc2 sc0 ls25 ws0">or </div></div><div class="c x16 y40 we hf"><div class="t m1 x1b h10 y45 ff2 fs5 fc2 sc0 ls1 ws0">1</div></div><div class="c x1c y42 w10 h12"><div class="t m2 x18 h10 y46 ff2 fs6 fc2 sc0 ls1 ws0">C</div></div><div class="c x18 y42 wf h11"><div class="t m2 x1d h10 y47 ff2 fs6 fc2 sc0 ls25 ws0">ol</div><div class="t m2 x1e h10 y48 ff2 fs6 fc2 sc0 ls25 ws0">or </div></div><div class="c x1c y42 w10 h13"><div class="t m2 x1f h10 y49 ff2 fs6 fc2 sc0 ls1 ws0">3</div></div></div><div class="pi" data-data='{"ctm":[1.500000,0.000000,0.000000,1.500000,0.000000,0.000000]}'></div></div>
 <div class="loading-indicator">
+>>>>>>> 304edecd268de9314575aea3d6cada775d9ef5c9
 <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAABGdBTUEAALGPC/xhBQAAAwBQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAwAACAEBDAIDFgQFHwUIKggLMggPOgsQ/w1x/Q5v/w5w9w9ryhBT+xBsWhAbuhFKUhEXUhEXrhJEuxJKwBJN1xJY8hJn/xJsyhNRoxM+shNF8BNkZxMfXBMZ2xRZlxQ34BRb8BRk3hVarBVA7RZh8RZi4RZa/xZqkRcw9Rdjihgsqxg99BhibBkc5hla9xli9BlgaRoapho55xpZ/hpm8xpfchsd+Rtibxsc9htgexwichwdehwh/hxk9Rxedx0fhh4igB4idx4eeR4fhR8kfR8g/h9h9R9bdSAb9iBb7yFX/yJfpCMwgyQf8iVW/iVd+iVZ9iVWoCYsmycjhice/ihb/Sla+ylX/SpYmisl/StYjisfkiwg/ixX7CxN9yxS/S1W/i1W6y1M9y1Q7S5M6S5K+i5S6C9I/i9U+jBQ7jFK/jFStTIo+DJO9zNM7TRH+DRM/jRQ8jVJ/jZO8DhF9DhH9jlH+TlI/jpL8jpE8zpF8jtD9DxE7zw9/z1I9j1A9D5C+D5D4D8ywD8nwD8n90A/8kA8/0BGxEApv0El7kM5+ENA+UNAykMp7kQ1+0RB+EQ+7EQ2/0VCxUUl6kU0zkUp9UY8/kZByUkj1Eoo6Usw9Uw3300p500t3U8p91Ez11Ij4VIo81Mv+FMz+VM0/FM19FQw/lQ19VYv/lU1/1cz7Fgo/1gy8Fkp9lor4loi/1sw8l0o9l4o/l4t6l8i8mAl+WEn8mEk52Id9WMk9GMk/mMp+GUj72Qg8mQh92Uj/mUn+GYi7WYd+GYj6mYc62cb92ch8Gce7mcd6Wcb6mcb+mgi/mgl/Gsg+2sg+Wog/moj/msi/mwh/m0g/m8f/nEd/3Ic/3Mb/3Qb/3Ua/3Ya/3YZ/3cZ/3cY/3gY/0VC/0NE/0JE/w5wl4XsJQAAAPx0Uk5TAAAAAAAAAAAAAAAAAAAAAAABCQsNDxMWGRwhJioyOkBLT1VTUP77/vK99zRpPkVmsbbB7f5nYabkJy5kX8HeXaG/11H+W89Xn8JqTMuQcplC/op1x2GZhV2I/IV+HFRXgVSN+4N7n0T5m5RC+KN/mBaX9/qp+pv7mZr83EX8/N9+5Nip1fyt5f0RQ3rQr/zo/cq3sXr9xrzB6hf+De13DLi8RBT+wLM+7fTIDfh5Hf6yJMx0/bDPOXI1K85xrs5q8fT47f3q/v7L/uhkrP3lYf2ryZ9eit2o/aOUmKf92ILHfXNfYmZ3a9L9ycvG/f38+vr5+vz8/Pv7+ff36M+a+AAAAAFiS0dEQP7ZXNgAAAj0SURBVFjDnZf/W1J5Fsf9D3guiYYwKqglg1hqplKjpdSojYizbD05iz5kTlqjqYwW2tPkt83M1DIm5UuomZmkW3bVrmupiCY1mCNKrpvYM7VlTyjlZuM2Y+7nXsBK0XX28xM8957X53zO55z3OdcGt/zi7Azbhftfy2b5R+IwFms7z/RbGvI15w8DdkVHsVi+EGa/ZZ1bYMDqAIe+TRabNv02OiqK5b8Z/em7zs3NbQO0GoD0+0wB94Ac/DqQEI0SdobIOV98Pg8AfmtWAxBnZWYK0vYfkh7ixsVhhMDdgZs2zc/Pu9HsVwc4DgiCNG5WQoJ/sLeXF8070IeFEdzpJh+l0pUB+YBwRJDttS3cheJKp9MZDMZmD5r7+vl1HiAI0qDtgRG8lQAlBfnH0/Miqa47kvcnccEK2/1NCIdJ96Ctc/fwjfAGwXDbugKgsLggPy+csiOZmyb4LiEOjQMIhH/YFg4TINxMKxxaCmi8eLFaLJVeyi3N2eu8OTctMzM9O2fjtsjIbX5ewf4gIQK/5gR4uGP27i5LAdKyGons7IVzRaVV1Jjc/PzjP4TucHEirbUjEOyITvQNNH+A2MLj0NYDAM1x6RGk5e9raiQSkSzR+XRRcUFOoguJ8NE2kN2XfoEgsUN46DFoDlZi0DA3Bwiyg9TzpaUnE6kk/OL7xgdE+KBOgKSkrbUCuHJ1bu697KDrGZEoL5yMt5YyPN9glo9viu96GtEKQFEO/34tg1omEVVRidBy5bUdJXi7R4SIxWJzPi1cYwMMV1HO10gqnQnLFygPEDxSaPPuYPlEiD8B3IIrqDevvq9ytl1JPjhhrMBdIe7zaHG5oZn5sQf7YirgJqrV/aWHLPnPCQYis2U9RthjawHIFa0NnZcpZbCMTbRmnszN3mz5EwREJmX7JrQ6nU0eyFvbtX2dyi42/yqcQf40fnIsUsfSBIJIixhId7OCA7aA8nR3sTfF4EHn3d5elaoeONBEXXR/hWdzgZvHMrMjXWwtVczxZ3nwdm76fBvJfAvtajUgKPfxO1VHHRY5f6PkJBCBwrQcSor8WFIQFgl5RFQw/RuWjwveDGjr16jVvT3UBmXPYgdw0jPFOyCgEem5fw06BMqTu/+AGMeJjtrA8aGRFhJpqEejvlvl2qeqJC2J3+nSRHwhWlyZXvTkrLSEhAQuRxoW5RXA9aZ/yESUkMrv7IpffIWXbhSW5jkVlhQUpHuxHdbQt0b6ZcWF4vdHB9MjWNs5cgsAatd0szvu9rguSmFxWUVZSUmM9ERocbarPfoQ4nETNtofiIvzDIpCFUJqzgPFYI+rVt3k9MH2ys0bOFw1qG+R6DDelnmuYAcGF38vyHKxE++M28BBu47PbrE5kR62UB6qzSFQyBtvVZfDdVdwF2tO7jsrugCK93Rxoi1mf+QHtgNOyo3bxgsEis9i+a3BAA8GWlwHNRlYmTdqkQ64DobhHwNuzl0mVctKGKhS5jGBfW5mdjgJAs0nbiP9KyCVUSyaAwAoHvSPXGYMDgjRGCq0qgykE64/WAffrP5bPVl6ToJeZFFJDMCkp+/BUjUpwYvORdXWi2IL8uDR2NjIdaYJAOy7UpnlqlqHW3A5v66CgbsoQb3PLT2MB1mR+BkWiqTvACAuOnivEwFn82TixYuxsWYTQN6u7hI6Qg3KWvtLZ6/xy2E+rrqmCHhfiIZCznMyZVqSAAV4u4Dj4GwmpiYBoYXxeKSWgLvfpRaCl6qV4EbK4MMNcKVt9TVZjCWnIcjcgAV+9K+yXLCY2TwyTk1OvrjD0I4027f2DAgdwSaNPZ0xQGFq+SAQDXPvMe/zPBeyRFokiPwyLdRUODZtozpA6GeMj9xxbB24l4Eo5Di5VtUMdajqHYHOwbK5SrAVz/mDUoqzj+wJSfsiwJzKvJhh3aQxdmjsnqdicGCgu097X3G/t7tDq2wiN5bD1zIOL1aZY8fTXZMFAtPwguYBHvl5Soj0j8VDSEb9vQGN5hbS06tUqapIuBuHDzoTCItS/ER+DiUpU5C964Ootk3cZj58cdsOhycz4pvvXGf23W3q7I4HkoMnLOkR0qKCUDo6h2TtWgAoXvYz/jXZH4O1MQIzltiuro0N/8x6fygsLmYHoVOEIItnATyZNg636V8Mm3eDcK2avzMh6/bSM6V5lNwCjLAVMlfjozevB5mjk7qF0aNR1x27TGsoLC3dx88uwOYQIGsY4PmvM2+mnyO6qVGL9sq1GqF1By6dE+VRThQX54RG7qESTUdAfns7M/PGwHs29WrI8t6DO6lWW4z8vES0l1+St5dCsl9j6Uzjs7OzMzP/fnbKYNQjlhcZ1lt0dYWkinJG9JeFtLIAAEGPIHqjoW3F0fpKRU0e9aJI9Cfo4/beNmwwGPTv3hhSnk4bf16JcOXH3yvY/CIJ0LlP5gO8A5nsHDs8PZryy7TRgCxnLq+ug2V7PS+AWeiCvZUx75RhZjzl+bRxYkhuPf4NmH3Z3PsaSQXfCkBhePuf8ZSneuOrfyBLEYrqchXcxPYEkwwg1Cyc4RPA7Oyvo6cQw2ujbhRRLDLXdimVVVQgUjBGqFy7FND2G7iMtwaE90xvnHr18BekUSHHhoe21vY+Za+yZZ9zR13d5crKs7JrslTiUsATFDD79t2zU8xhvRHIlP7xI61W+3CwX6NRd7WkUmK0SuVBMpHo5PnncCcrR3g+a1rTL5+mMJ/f1r1C1XZkZASITEttPCWmoUel6ja1PwiCrATxKfDgXfNR9lH9zMtxJIAZe7QZrOu1wng2hTGk7UHnkI/b39IgDv8kdCXb4aFnoDKmDaNPEITJZDKY/KEObR84BTqH1JNX+mLBOxCxk7W9ezvz5vVr4yvdxMvHj/X94BT11+8BxN3eJvJqPvvAfaKE6fpa3eQkFohaJyJzGJ1D6kmr+m78J7iMGV28oz0ygRHuUG1R6e3TqIXEVQHQ+9Cz0cYFRAYQzMMXLz6Vgl8VoO0lsMeMoPGpqUmdZfiCbPGr/PRF4i0je6PBaBSS/vjHN35hK+QnoTP+//t6Ny+Cw5qVHv8XF+mWyZITVTkAAAAASUVORK5CYII="/>
 </div>
 
+
+
+    <script>
+    "use strict";
+
+function _instanceof(left, right) { if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) { return !!right[Symbol.hasInstance](left); } else { return left instanceof right; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!_instanceof(instance, Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var DonutGraph =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(DonutGraph, _React$Component);
+
+  function DonutGraph(props) {
+    var _this;
+
+    _classCallCheck(this, DonutGraph);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DonutGraph).call(this, props));
+    _this.state = {
+      width: _this.props.width,
+      height: _this.props.height,
+      percentage: _this.props.percentage,
+      showPercentage: _this.props.showPercentage
+    };
+    return _this;
+  }
+
+  _createClass(DonutGraph, [{
+    key: "render",
+    value: function render() {
+      var green = "rgb(0, 170, 0)";
+      var red = "rgb(212, 51, 63)";
+      var strokeWidth = 7;
+      return React.createElement("svg", {
+        width: this.state.width,
+        height: this.state.height,
+        viewBox: "0 0 42 42",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, React.createElement("circle", {
+        cx: "21",
+        cy: "21",
+        r: "15.91549430918954",
+        fill: "transparent",
+        stroke: red,
+        strokeWidth: strokeWidth
+      }), React.createElement("circle", {
+        cx: "21",
+        cy: "21",
+        r: "15.91549430918954",
+        fill: "transparent",
+        stroke: green,
+        strokeWidth: strokeWidth,
+        strokeDasharray: "".concat(this.state.percentage, " ").concat(100 - this.state.percentage),
+        strokeDashoffset: "25"
+      }), this.state.showPercentage && React.createElement("text", {
+        x: "50%",
+        y: "50%",
+        style: {
+          font: "10px sans-serif",
+          transform: "translateY(0.30em)",
+          "text-anchor": "middle",
+          "font-weight": "700"
+        }
+      }, this.props.percentage, "%"));
+    }
+  }]);
+
+  return DonutGraph;
+}(React.Component);
+
+var LetterGraph =
+/*#__PURE__*/
+function (_React$Component2) {
+  _inherits(LetterGraph, _React$Component2);
+
+  function LetterGraph(props) {
+    var _this2;
+
+    _classCallCheck(this, LetterGraph);
+
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(LetterGraph).call(this, props));
+    var percentage = _this2.props.percentage;
+    var color = "";
+    var grade = "";
+
+    if (percentage < 60) {
+      grade = "F";
+      color = "#EF0000";
+    } else if (percentage < 70) {
+      grade = "D";
+      color = "#EB7B1F";
+    } else if (percentage < 80) {
+      grade = "C";
+      color = "#E6BC05";
+    } else if (percentage < 90) {
+      grade = "B";
+      color = "#ABD312";
+    } else if (percentage < 95) {
+      grade = "A";
+      color = "#00A900";
+    } else {
+      grade = "A+";
+      color = "#00A900";
+    }
+
+    _this2.state = {
+      color: color,
+      height: props.height,
+      width: props.width,
+      letter: grade
+    };
+    return _this2;
+  }
+
+  _createClass(LetterGraph, [{
+    key: "render",
+    value: function render() {
+      return React.createElement("svg", {
+        width: this.state.width,
+        height: this.state.height,
+        viewBox: "0 0 42 42",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, React.createElement("circle", {
+        cx: "21",
+        cy: "21",
+        r: "15.91549430918954",
+        fill: this.state.color
+      }), React.createElement("text", {
+        fill: "#fff",
+        x: "50%",
+        y: "50%",
+        style: {
+          font: "17px sans-serif",
+          transform: "translateY(0.35em)",
+          "text-anchor": "middle",
+          "font-weight": "700"
+        }
+      }, this.state.letter));
+    }
+  }]);
+
+  return LetterGraph;
+}(React.Component);
+
+var PulseGraph =
+/*#__PURE__*/
+function (_React$Component3) {
+  _inherits(PulseGraph, _React$Component3);
+
+  function PulseGraph(props) {
+    var _this3;
+
+    _classCallCheck(this, PulseGraph);
+
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(PulseGraph).call(this, props));
+    var percentage = _this3.props.percentage;
+    var color = "";
+
+    if (percentage < 3) {
+      color = "#00A900";
+    } else if (percentage < 5) {
+      color = "#ABD312";
+    } else if (percentage < 10) {
+      color = "#E6BC05";
+    } else if (percentage < 20) {
+      color = "#EB7B1F";
+    } else {
+      color = "#D4323D";
+    }
+
+    _this3.state = {
+      width: _this3.props.width,
+      height: _this3.props.height,
+      percentage: _this3.props.percentage,
+      color: color
+    };
+    return _this3;
+  }
+
+  _createClass(PulseGraph, [{
+    key: "render",
+    value: function render() {
+      // This is a logarithmic function that
+      // grows quickly then tapers off so that
+      // the smaller numbers are visible and the
+      // larger numbers are not all-encompasing.
+      var percentToFill = 2164.064 + (2.000021 - 2164.064) / (1 + Math.pow(this.state.percentage / 790343600, 0.3242516));
+      return React.createElement("svg", {
+        width: this.state.width,
+        height: this.state.height,
+        viewBox: "0 0 42 42",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, React.createElement("circle", {
+        "vector-effect": "non-scaling-stroke",
+        cx: "21",
+        cy: "21",
+        r: "15.91549430918954",
+        fill: "transparent",
+        stroke: this.state.color,
+        strokeWidth: 3
+      }), React.createElement("circle", {
+        cx: "21",
+        cy: "21",
+        r: percentToFill,
+        fill: this.state.color
+      }));
+    }
+  }]);
+
+  return PulseGraph;
+}(React.Component);
+
+var CircleGraph =
+/*#__PURE__*/
+function (_React$Component4) {
+  _inherits(CircleGraph, _React$Component4);
+
+  function CircleGraph(props) {
+    var _this4;
+
+    _classCallCheck(this, CircleGraph);
+
+    _this4 = _possibleConstructorReturn(this, _getPrototypeOf(CircleGraph).call(this, props));
+    var height = props.height;
+    var width = props.width;
+    var grade = props.grade;
+
+    if (!height && width) {
+      height = width;
+    } else if (height && !width) {
+      width = height;
+    } else {
+      height = 400;
+      width = 400;
+    }
+
+    if (typeof grade === "undefined") {
+      throw "That is not a valid grade";
+    } else {
+      grade = Number(grade);
+    }
+
+    if (grade < 1 && grade >= 0) {
+      grade *= 100;
+    } else if (grade > 100 || grade < 0) {
+      throw "'".concat(grade, " is not a valid percentage. Must be between 0 & 100 or 0 & 1.'");
+    }
+
+    if (props.type !== "donut" && props.type !== "letter" && props.type !== "pulse") {
+      throw "'".concat(props.type, "' is not a valid graph type.");
+    }
+
+    _this4.state = {
+      grade: grade,
+      height: height,
+      width: width
+    };
+    return _this4;
+  }
+
+  _createClass(CircleGraph, [{
+    key: "render",
+    value: function render() {
+      if (this.props.type === "donut") {
+        return React.createElement(DonutGraph, {
+          height: this.state.height,
+          width: this.state.width,
+          percentage: this.state.grade,
+          showPercentage: this.props.showPercentage
+        });
+      } else if (this.props.type === "pulse") {
+        return React.createElement(PulseGraph, {
+          height: this.state.height,
+          width: this.state.width,
+          percentage: this.state.grade
+        });
+      } else {
+        return React.createElement(LetterGraph, {
+          height: this.state.height,
+          width: this.state.width,
+          percentage: this.state.grade
+        });
+      }
+    }
+  }]);
+
+  return CircleGraph;
+}(React.Component);
+
+var CircleGraphContainer =
+/*#__PURE__*/
+function (_React$Component5) {
+  _inherits(CircleGraphContainer, _React$Component5);
+
+  function CircleGraphContainer() {
+    _classCallCheck(this, CircleGraphContainer);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(CircleGraphContainer).apply(this, arguments));
+  }
+
+  _createClass(CircleGraphContainer, [{
+    key: "render",
+    value: function render() {
+      return React.createElement("main", null, React.createElement("h1", null,), React.createElement(CircleGraph, {
+        height: "100",
+        type: "donut",
+        grade: "58",
+        showPercentage: true
+      }));
+    }
+  }]);
+
+  return CircleGraphContainer;
+}(React.Component);
+
+ReactDOM.render(React.createElement(CircleGraphContainer, null), document.getElementById("root"));
+    </script>
+
+    <script>
+    $(document).ready(function() {
+	// ===== Progress Bar ====
+	// on page load...
+	moveProgressBar();
+	// on browser resize...
+	$(window).resize(function() {
+		moveProgressBar();
+	});
+
+	// SIGNATURE PROGRESS
+	function moveProgressBar() {
+		$('.progress-wrap').each(function() {
+			var getPercent = ($(this).data('progress-percent') / 100);
+
+			var getProgressWrapWidth = $(this).width();
+
+			var progressTotal = getPercent * getProgressWrapWidth;
+
+			var animationLength = 1000;
+			// on page load, animate percentage bar to data percentage length
+			// .stop() used to prevent animation queueing
+			$(this).find('.progress-bar').stop().animate({
+				left: progressTotal
+			}, animationLength);
+		});
+
+	}
+});
+    </script>
+
+       <script>
+    $(document).ready(function() {
+	// ===== Progress Bar ====
+	// on page load...
+	moveProgressBar();
+	// on browser resize...
+	$(window).resize(function() {
+		moveProgressBar();
+	});
+
+	// SIGNATURE PROGRESS
+	function moveProgressBar() {
+		$('.progress1-wrap').each(function() {
+			var getPercent = ($(this).data('progress-percent') / 100);
+
+			var getProgressWrapWidth = $(this).width();
+
+			var progressTotal = getPercent * getProgressWrapWidth;
+
+			var animationLength = 1000;
+			// on page load, animate percentage bar to data percentage length
+			// .stop() used to prevent animation queueing
+			$(this).find('.progress1-bar1').stop().animate({
+				left: progressTotal
+			}, animationLength);
+		});
+
+	}
+});
+    </script>
 {% endblock %}
