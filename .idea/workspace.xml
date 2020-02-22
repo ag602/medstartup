@@ -21,6 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="85db2932-608f-446a-887e-56d36c2c887b" />
   <component name="ProjectId" id="1W3tZgk31E8Y97UUevtvzZGW8aK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -57,6 +58,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="medstartup.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -104,6 +106,10 @@
       <workItem from="1579501854778" duration="66000" />
       <workItem from="1579674980606" duration="7953000" />
       <workItem from="1580117430971" duration="7845000" />
+      <workItem from="1580130600448" duration="8093000" />
+      <workItem from="1580829750220" duration="95000" />
+      <workItem from="1581018625313" duration="1271000" />
+      <workItem from="1581351118744" duration="86000" />
     </task>
     <servers />
   </component>
@@ -119,10 +125,30 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1579721965141">
+    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1581351193646">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1579721965141" />
+    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581351193646" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1580829845056">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1580829845056" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1580829845056">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1580829845056" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1580829845056">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1580829845056" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1580829845056">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1580829845056" />
+    <state x="337" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1581351119025">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1581351119025" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1579259855055">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

@@ -67,11 +67,17 @@ def diabriskpred(request):
             context.save()
             g = (weight*10000) / (height * height)
             bmi_calc = float("{0:.2f}".format(g))
+            bmi_chart = (bmi_calc/24.9)*10
+            print(bmi_chart)
+            # while gender == 'Male':
+            #     if total_cholestrol > 30 & total_cholestrol <65:
+            #         cholestrol_chart =
+
             dic = {'name':name,'age':age, 'gender':gender, 'total_cholestrol':total_cholestrol,'hdl_cholestrol':hdl_cholestrol,
                    'weight':weight,'height':height,'waist':waist,'hip':hip,'physically_active':physically_active,'eat':eat,
                    'parent_diabetes':parent_diabetes,'relative_diabetes':relative_diabetes, 'bp':bp, 'glucose':glucose,
                    'smoking':smoking,'heart_disease':heart_disease,'depression':depression,'HbA1c':HbA1c,'haem':haem,
-                   'bmi_calc':bmi_calc,
+                   'bmi_calc':bmi_calc,'bmi_chart':bmi_chart,
                    }
 
             return render_to_response('Diabetes/Report.html', dic)
